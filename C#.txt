@@ -1,0 +1,131 @@
+    The list of layout rules:
+	1) Start all declarations at a new line;
+	2) Insert two empty lines between constructions of different types (fields, properties, methods etc.);
+	3) Insert empty lines between members of one type, but with different access modifiers:
+		- One line between fields and events;
+		- Two lines between other types (methods, constructors, properties);
+	4) Replace constructions ": base()" and ": this()" in constructors on tne next line;
+	5) Add one empry line before "return" in methods;
+
+
+	Common rules:
+	1) Use keyword "var" where you can use it;
+	2) Clear all useless spaces in the end of lines;
+	3) Install Resharper and get rid of all warnings from it.
+=======================================================================================================================================
+	
+	Example of a class declaration:
+
+	public class DemoClass : IEnumerable<int>
+	{
+        public const string DemoConstant1 = "DemoConstant1";
+        public const string DemoConstant2 = "DemoConstant2";
+        public static readonly TimeSpan PublicStaticReadoinlyField = TimeSpan.Zero;
+
+        private const int ItemsCount = 1000;
+        private const int ItemsCount2 = 1000;
+
+        private readonly IComparable<int> _readonlyDependencyField1;
+        private readonly IComparable<int> _readonlyDependencyField2;
+
+        private string _privateStateField1;
+        private string _privateStateField2;
+
+        private IComparable<int> PrivateProperty1 => _readonlyDependencyField1;
+
+        private IComparable<int> PrivateProperty2 => _readonlyDependencyField2;
+
+
+        public string PublicProperty1 => "PublicProperty1";
+
+        public string PublicProperty2 => "PublicProperty2";
+
+
+        public event EventHandler Event1;
+
+        public event EventHandler Event2;
+
+
+        public DemoClass(IComparable<int> comparable1) 
+			: this(comparable1, 123)
+        {
+
+        }
+
+        private DemoClass(IComparable<int> comparable1, IComparable<int> comparable2)
+        {
+            _readonlyDependencyField1 = comparable1;
+            _readonlyDependencyField2 = comparable2;
+
+            _privateStateField1 = "Hello";
+            _privateStateField2 = "World";
+        }
+
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            var enumerator = GetEnumerator();
+
+            return enumerator;
+        }
+
+
+        public static DemoClass CreateRandomDemoObject()
+        {
+            var random = new Random();
+            var numberOne = random.Next();
+            var numberTwo = random.Next();
+
+            return new DemoClass(numberOne, numberTwo);
+        }
+
+
+        public IEnumerator<int> GetEnumerator()
+        {
+            var random = new Random();
+            for (int i = 0; i < ItemsCount; i++)
+            {
+                yield return random.Next();
+            }
+        }
+
+        public void AnotherPublicMethod()
+        {
+
+        }
+
+
+        protected void ProtectedMethod1()
+        {
+
+        }
+
+        protected void ProtectedMethod2()
+        {
+
+        }
+
+
+        private void PrivtaeMethod1()
+        {
+
+        }
+
+        private void PrivtaeMethod2()
+        {
+
+        }
+
+
+
+        private sealed class PrivateClass
+        {
+            public string Property1 { get; }
+
+
+            public PrivateClass(string property1)
+            {
+                Property1 = property1;
+            }
+        }
+    }

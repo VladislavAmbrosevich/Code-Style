@@ -20,6 +20,7 @@
 	{
         public const string DemoConstant1 = "DemoConstant1";
         public const string DemoConstant2 = "DemoConstant2";
+
         public static readonly TimeSpan PublicStaticReadoinlyField = TimeSpan.Zero;
 
         private const int ItemsCount = 1000;
@@ -30,6 +31,7 @@
 
         private string _privateStateField1;
         private string _privateStateField2;
+
 
         private IComparable<int> PrivateProperty1 => _readonlyDependencyField1;
 
@@ -47,10 +49,11 @@
 
 
         public DemoClass(IComparable<int> comparable1) 
-			: this(comparable1, 123)
+            : this(comparable1, 123)
         {
 
         }
+
 
         private DemoClass(IComparable<int> comparable1, IComparable<int> comparable2)
         {

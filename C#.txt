@@ -1,23 +1,23 @@
     The list of layout rules:
-	1) Start all declarations at a new line;
-	2) Insert two empty lines between constructions of different types (fields, properties, methods etc.);
-	3) Insert empty lines between members of one type, but with different access modifiers:
-		- One line between fields and events;
-		- Two lines between other types (methods, constructors, properties);
-	4) Replace constructions ": base()" and ": this()" in constructors on tne next line;
-	5) Add one empry line before "return" in methods;
+    1) Start all declarations at a new line;
+    2) Insert two empty lines between constructions of different types (fields, properties, methods etc.);
+    3) Insert empty lines between members of one type, but with different access modifiers:
+        - One line between fields and events;
+        - Two lines between other types (methods, constructors, properties);
+    4) Replace constructions ": base()" and ": this()" in constructors on tne next line;
+    5) Add one empry line before "return" in methods;
 
 
-	Common rules:
-	1) Use keyword "var" where you can use it;
-	2) Clear all useless spaces in the end of lines;
-	3) Install Resharper and get rid of all warnings from it.
+    Common rules:
+    1) Use keyword "var" where you can use it;
+    2) Clear all useless spaces in the end of lines;
+    3) Install Resharper and get rid of all warnings from it.
 =======================================================================================================================================
-	
-	Example of a class declaration:
 
-	public class DemoClass : IEnumerable<int>
-	{
+    Example of a class declaration:
+
+    public class DemoClass : IEnumerable<int>
+    {
         public const string DemoConstant1 = "DemoConstant1";
         public const string DemoConstant2 = "DemoConstant2";
 
